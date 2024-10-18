@@ -1,0 +1,42 @@
+.dashboard-container {
+    max-width: 800px; /* Set a max width for the dashboard */
+    margin: 20px auto; /* Center the dashboard */
+    padding: 20px; /* Add some padding */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Darker text color for better contrast */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    padding: 15px; /* Padding for each job offer */
+    margin-bottom: 10px; /* Spacing between job offers */
+    border: 1px solid #e0e0e0; /* Light border for each job offer */
+    border-radius: 5px; /* Rounded corners for job offers */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+li:hover {
+    background-color: #f1f1f1; /* Change background color on hover */
+}
+
+h3 {
+    margin: 0; /* Remove default margin */
+    color: #007BFF; /* Bootstrap primary color for company names */
+}
+
+p {
+    margin: 5px 0; /* Space out the paragraphs */
+    color: #555; /* Slightly lighter color for job details */
+}
