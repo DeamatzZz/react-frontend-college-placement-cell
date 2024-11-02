@@ -1,5 +1,6 @@
 .login-container {
     display: flex;
+    /* width: 50vh; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -31,7 +32,8 @@ h2 {
     color: #333;
 }
 
-.input-group input {
+.input-group input, 
+.input-group select {
     width: 100%;
     padding: 10px;
     font-size: 1rem;

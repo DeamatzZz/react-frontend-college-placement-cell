@@ -1,39 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
 import './AdminDashboard.css';
 
-const AdminDashboard = () => {
-    const [jobOffers, setJobOffers] = useState([]);
+import AdminDashboardPage from './admin_components/AdminDashboardPage';
+import HodDashboardPage from './admin_components/HodDashboardPage';
+import StudentDashboardPage from './admin_components/StudentDashboardPage';
 
-    useEffect(() => {
-        const fetchJobOffers = async () => {
-            const response = await fetch('/api/job-offers'); // Adjust URL as necessary
-            const data = await response.json();
-            setJobOffers(data);
-        };
-        fetchJobOffers();
-    }, []);
 
-    return (
-        <div className="admin-dashboard-container">
-            <h2>Admin Dashboard</h2>
-            <div className="job-offers-section">
-                <h3>Job Offers</h3>
+const AdminDashboard = ({ adminName }) => (
+    <div className="admin-dashboard">
+        {/* Header with Welcome message */}
+        <div className="header">
+            <h1>Placement Cell</h1>
+            <div className="welcome-message">Welcome, {adminName}</div>
+        </div>
+
+        {/* Content Area */}
+        <div className="dashboard-content">
+            {/* Selection Area */}
+            <div className="selection-area">
+                <h3></h3>
                 <ul>
-                    {jobOffers.map((offer) => (
-                        <li key={offer.id}>
-                            <h4>{offer.companyName}</h4>
-                            <p>Position: {offer.position}</p>
-                            <p>Eligibility: {offer.eligibility}</p>
-                        </li>
-                    ))}
+                    <li>
+                        <Link to="/admin/dashboard">Dashboard</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/hod">Hod's</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/students">Students</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/companies">Companies</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/job-offers">Job Offers</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/selected-students">Selected Students</Link>
+                    </li>
                 </ul>
             </div>
-            <div className="actions-section">
-                <button className="add-job-offer-button">Add Job Offer</button>
-                <button className="manage-students-button">Manage Students</button>
+
+            {/* Display Area */}
+            <div className="display-area">
+                <Routes>
+                    <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+                    <Route path="/admin/hod" element={<HodDashboardPage />} />
+                    <Route path="/admin/students" element={<StudentDashboardPage />} />
+                    <Route path="/" element={<p>Please select an option from the left.</p>} />
+                </Routes>
             </div>
         </div>
-    );
-};
+    </div>
+);
 
 export default AdminDashboard;
